@@ -3,15 +3,24 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-import Group from '../img/error.svg'
+import error from '../img/error.svg'
 
 
 const inputDatetimeRef = document.querySelector('#datetime-picker');
 const buttonStartRef = document.querySelector('button');
+const divTimerRef = document.querySelector('.timer');
 const timerDays = document.querySelector('[data-days]');
 const timerHours = document.querySelector('[data-hours]');
 const timerMinutes = document.querySelector('[data-minutes]');
 const timerSeconds = document.querySelector('[data-seconds]');
+
+const div = document.createElement('div');
+div.className += 'container';
+div.appendChild(inputDatetimeRef);
+div.appendChild(buttonStartRef);
+div.appendChild(divTimerRef)
+const sectionRef = document.querySelector('section');
+sectionRef.insertAdjacentElement('afterend', div);
 
 buttonStartRef.addEventListener('click', onButtonStartTimer);
 
@@ -39,7 +48,7 @@ const options = {
           progressBarColor: 'white',
           title: 'Error',
           titleColor: 'white',
-          iconUrl: Group,
+          iconUrl: error,
           position: 'topCenter',
           icon: 'icon-error.svg',
           messageColor: 'white',
